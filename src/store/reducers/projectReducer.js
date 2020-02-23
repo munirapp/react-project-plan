@@ -10,15 +10,13 @@ const projectReducer = (state = initState, action) => {
     case "CREATE_PROJECT":
       console.log("create project", action.project);
       return state;
-      break;
 
     case "CREATE_PROJECT_ERROR":
       console.log("create project error", action.error);
-      break;
+      return state;
 
     default:
       return state;
-      break;
   }
 };
 export default projectReducer;
