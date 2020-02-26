@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
 
+/* eslint-disable */
 const SignedIn = props => {
   return (
     <ul className="right">
@@ -10,7 +11,7 @@ const SignedIn = props => {
         <NavLink to="/create">New Project</NavLink>
       </li>
       <li>
-        <span onClick="{props.signOut}"></span>
+        <a onClick={props.signOut}>Logout</a>
       </li>
       <li>
         <NavLink to="/" className="btn btn-floating pink lighten-1">
