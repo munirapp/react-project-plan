@@ -5,6 +5,7 @@ import { signOut } from "../../store/actions/authActions";
 
 /* eslint-disable */
 const SignedIn = props => {
+  const { profile } = props;
   return (
     <ul className="right">
       <li>
@@ -15,7 +16,7 @@ const SignedIn = props => {
       </li>
       <li>
         <NavLink to="/" className="btn btn-floating pink lighten-1">
-          NN
+          {profile.initials}
         </NavLink>
       </li>
     </ul>
