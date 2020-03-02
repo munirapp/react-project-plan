@@ -1,9 +1,20 @@
 import React from "react";
 
-const Notifications = () => {
+const Notifications = props => {
   return (
-    <div>
-      <p>Notifications</p>
+    <div className="section">
+      <div className="z-depth-0">
+        <div className="card-content">
+          <div className="card-title">Notifications</div>
+          <ul className="notifications">
+            <li>Notification</li>
+            <li>Notification</li>
+            <li>Notification</li>
+            <li>Notification</li>
+            <li>Notification</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
