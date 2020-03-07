@@ -1,3 +1,5 @@
+/* eslint no-use-before-define: 0 */
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -5,14 +7,18 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware, compose } from "redux";
 import rootReducer from "./store/reducers/rootReducer";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import thunk from "redux-thunk";
 import {
   reduxFirestore,
   getFirestore,
   createFirestoreInstance
 } from "redux-firestore";
-import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
+import {
+  ReactReduxFirebaseProvider,
+  getFirebase,
+  isLoaded
+} from "react-redux-firebase";
 import firebaseConfig from "./config/firebase_config";
 
 const store = createStore(
@@ -22,6 +28,17 @@ const store = createStore(
     reduxFirestore(firebaseConfig)
   )
 );
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth);
+  if (!isLoaded(auth))
+    return (
+      <div className="splash-screen">
+        <img src="logo192.png" />
+      </div>
+    );
+  return children;
+}
 
 const rrfProps = {
   firebase: firebaseConfig,
@@ -33,7 +50,9 @@ const rrfProps = {
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <App />
+      <AuthIsLoaded>
+        <App />
+      </AuthIsLoaded>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById("root")
