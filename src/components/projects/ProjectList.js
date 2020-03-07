@@ -20,6 +20,8 @@ const ProjectList = ({ projects }) => {
     return (
       <div className="section">
         <ProjectSkeleton />
+        <ProjectSkeleton />
+        <ProjectSkeleton />
       </div>
     );
   }

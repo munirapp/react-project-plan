@@ -7,8 +7,8 @@ import { compose } from "redux";
 
 class Dashboard extends Component {
   render() {
-    const { projects, notifications } = this.props;
-    const notifView = notifications ? (
+    const { projects, notifications, auth } = this.props;
+    const notifLoading = auth.uid ? (
       <Notifications notifications={notifications}></Notifications>
     ) : (
       <div className="section">
@@ -28,7 +28,7 @@ class Dashboard extends Component {
           <div className="col s12 m6 project-list">
             <ProjectList projects={projects} />
           </div>
-          <div className="col s12 m6">{notifView}</div>
+          <div className="col s12 m6">{notifLoading}</div>
         </div>
       </div>
     );
@@ -36,11 +36,10 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  const { auth } = state.firebase;
-  const notifications = auth.uid ? state.firestore.ordered.notifications : null;
   return {
     projects: state.firestore.ordered.projects,
-    notifications: notifications
+    notifications: state.firestore.ordered.notifications,
+    auth: state.firebase.auth
   };
 };
 
@@ -48,6 +47,6 @@ export default compose(
   connect(mapStateToProps),
   firestoreConnect([
     { collection: "projects", limit: 5, orderBy: ["createdAt", "desc"] },
-    { collection: "notifications", limit: 3, orderBy: ["time", "desc"] }
+    { collection: "notifications", limit: 10, orderBy: ["time", "desc"] }
   ])
 )(Dashboard);
