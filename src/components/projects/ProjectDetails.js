@@ -15,12 +15,14 @@ const ProjectDetails = props => {
       <div className="container section project-details">
         <div className="card z-depth-0">
           <div className="card-content">
-            <span className="card-title">{detail.title}</span>
+            <span className="card-title indigo-text">
+              <i className="material-icons">ac_unit</i> {detail.title}
+            </span>
             <p>{detail.content}</p>
           </div>
-          <div className="card-action grey lighten-4 grey-text">
-            <div>{detail.authorFirstName}</div>
-            <div>
+          <div className="card-action grey lighten-4">
+            <div className="indigo-text">{detail.authorFirstName}</div>
+            <div className="grey-text text-darken-4">
               {moment(detail.createdAt.toDate())
                 .startOf("hour")
                 .fromNow()}
