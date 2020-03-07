@@ -3,11 +3,16 @@ import moment from "moment";
 
 const ProjectSummary = ({ project }) => {
   return (
-    <div className="card z-depth-0 project-summary">
-      <div className="card-content grey-text text-darken-3">
-        <span className="card-title">{project.title}</span>
-        <p>{project.authorFirstName}</p>
-        <p className="grey-text">
+    <div className="card card-border">
+      <div className="card-content ">
+        <span className="card-title indigo-text">
+          <i className="material-icons">ac_unit</i>
+          {project.title}
+        </span>
+      </div>
+      <div className="card-action">
+        <span className="grey-text">Author: {project.authorFirstName}</span>
+        <p className="grey-text text-darken-3">
           {moment(project.createdAt.toDate()).format("DD MMM YYYY")}
         </p>
       </div>
