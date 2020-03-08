@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# reactredux-firebase-project
 
-## Available Scripts
+Fullstack crud simple project with firebase app and react
+Demo: [https://reactredux-firebase-project.firebaseapp.com/](https://reactredux-firebase-project.firebaseapp.com/)
 
-In the project directory, you can run:
+## Setup
 
-### `npm start`
+Install all packages
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+npm install
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Running Development Mode
 
-### `npm test`
+```
+npm run serve
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Build Project
 
-### `npm run build`
+```
+npm run build
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Deploy project into firebase hosting
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+firebase deploy
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Sync Folder build with dist (Basic Shell Only)
 
-### `npm run eject`
+```
+bash sync.sh
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Reference
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React, Redux & Firebase App Tutorial - Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9iWstfXntcj8f-dFZ4UtlN3)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technologies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+NodeJS, React, Firebase, MaterializeCSS
 
-## Learn More
+## Requirements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [NodeJS/NPM](<[https://nodejs.org/en/](https://nodejs.org/en/)>)
+- [Firebase Cloud Function](<[https://firebase.google.com/docs/functions](https://firebase.google.com/docs/functions)>)
+- [Create React App](<[https://github.com/facebook/create-react-app](https://github.com/facebook/create-react-app)>)
+- Internet Connection (Not Support Offline) <br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contact-me
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- http://telegram.me/mumundira <br>
+- http://fb.me/m.munir.ap<br>
