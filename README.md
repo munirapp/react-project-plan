@@ -45,9 +45,9 @@ NodeJS, React, Firebase, MaterializeCSS
 
 ## Requirements
 
-- [NodeJS/NPM](<[https://nodejs.org/en/](https://nodejs.org/en/)>)
-- [Firebase Cloud Function](<[https://firebase.google.com/docs/functions](https://firebase.google.com/docs/functions)>)
-- [Create React App](<[https://github.com/facebook/create-react-app](https://github.com/facebook/create-react-app)>)
+- [NodeJS/NPM](https://nodejs.org/en/)
+- [Firebase Cloud Function](https://firebase.google.com/docs/functions)
+- [Create React App](https://github.com/facebook/create-react-app)
 - Internet Connection (Not Support Offline) <br>
 
 ## Contact-me
