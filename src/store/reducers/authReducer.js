@@ -22,6 +22,9 @@ const authReducer = (state = initState, action) => {
       console.log(action.error);
       return { ...state, authError: action.error.message };
 
+    case "DISABLE_AUTH_ERROR":
+      return { ...state, authError: null };
+
     default:
       return state;
   }

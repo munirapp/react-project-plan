@@ -30,14 +30,9 @@ class Navbar extends Component {
               <Link to="/" className="brand-logo">
                 React Project
               </Link>
-              <a
-                href="#"
-                data-target="mobile-demo"
-                className="sidenav-trigger"
-                onClick={this.handleToggle}
-              >
+              <span className="sidenav-trigger" onClick={this.handleToggle}>
                 <i className="material-icons">menu</i>
-              </a>
+              </span>
               <ul className="right hide-on-med-and-down">{link}</ul>
             </div>
           </nav>

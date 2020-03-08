@@ -41,3 +41,6 @@ export const signUp = newUser => {
       .catch(error => dispatch({ type: "SIGNUP_ERROR", error }));
   };
 };
+
+export const disableAuthError = () => dispatch =>
+  dispatch({ type: "DISABLE_AUTH_ERROR" });

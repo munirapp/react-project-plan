@@ -2,19 +2,38 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createProject } from "../../store/actions/projectActions";
 import { Redirect } from "react-router-dom";
+import swal from "sweetalert2";
+import _ from "lodash";
 
 class CreateProject extends Component {
   state = {
     title: "",
-    content: " "
+    content: ""
   };
   handleChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
   handleSubmit = e => {
     e.preventDefault();
+    if (_.includes(this.state, "")) {
+      return swal.fire({
+        title: "can't create project",
+        text: "you must complete form before submit data",
+        icon: "error"
+      });
+    }
+
     this.props.createProject(this.state);
-    this.props.history.push("/");
+    return swal
+      .fire({
+        title: "success",
+        text: "added new project",
+        icon: "success",
+        allowOutsideClick: false
+      })
+      .then(response => {
+        if (response.value) this.props.history.push("/");
+      });
   };
   render() {
     const { auth } = this.props;
@@ -34,7 +53,7 @@ class CreateProject extends Component {
               <textarea
                 id="content"
                 className="materialize-textarea"
-                onChange={this.handleChage}
+                onChange={this.handleChange}
               ></textarea>
             </div>
             <div className="input-field">

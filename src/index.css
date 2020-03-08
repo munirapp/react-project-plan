@@ -47,6 +47,11 @@ code {
   padding: 10px 20px;
 }
 
+.sidenav-trigger {
+  cursor: pointer;
+  display: none;
+}
+
 @media only screen and (max-width: 669px) {
   .project-list {
     max-height: 250px;
@@ -61,6 +66,10 @@ code {
   }
 
   .side-nav {
+    display: block;
+  }
+
+  .sidenav-trigger {
     display: block;
   }
 }

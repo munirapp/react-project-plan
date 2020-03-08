@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { Redirect } from "react-router-dom";
 import moment from "moment";
+import Skeleton from "react-loading-skeleton";
 
 const ProjectDetails = props => {
   const { detail, auth } = props;
@@ -32,7 +33,28 @@ const ProjectDetails = props => {
       </div>
     );
   } else {
-    return <div className="container center">Loading...</div>;
+    return (
+      <div className="container section project-details">
+        <div className="card z-depth-0">
+          <div className="card-content">
+            <span className="card-title indigo-text">
+              <Skeleton />
+            </span>
+            <p>
+              <Skeleton />
+            </p>
+          </div>
+          <div className="card-action grey lighten-4">
+            <div className="indigo-text">
+              <Skeleton />
+            </div>
+            <div className="grey-text text-darken-4">
+              <Skeleton />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 };
 

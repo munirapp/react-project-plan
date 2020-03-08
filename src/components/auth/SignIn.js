@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { signIn } from "../../store/actions/authActions";
+import { signIn, disableAuthError } from "../../store/actions/authActions";
 import { Redirect } from "react-router-dom";
+import swal from "sweetalert2";
 
 class SignIn extends Component {
   state = {
@@ -9,6 +10,7 @@ class SignIn extends Component {
     password: ""
   };
   handleChage = e => {
+    if (this.props.authError) this.props.disableAuthError();
     this.setState({ [e.target.id]: e.target.value });
   };
   handleSubmit = e => {
@@ -21,6 +23,15 @@ class SignIn extends Component {
     if (auth.uid) return <Redirect to="/" />;
 
     const { authError } = this.props;
+
+    if (authError) {
+      swal.fire({
+        title: authError,
+        text: "wrong password/username",
+        icon: "error"
+      });
+    }
+
     return (
       <div className="container">
         <form
@@ -42,10 +53,12 @@ class SignIn extends Component {
               />
             </div>
             <div className="input-field">
-              <button className="btn indigo lighten-1 z-depth-0">Login</button>
-              <div className="red-text center">
-                {authError ? <p>{authError}</p> : null}
-              </div>
+              <button
+                className="btn indigo lighten-1 z-depth-0"
+                disabled={authError}
+              >
+                Login
+              </button>
             </div>
           </div>
         </form>
@@ -62,7 +75,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return { signIn: creds => dispatch(signIn(creds)) };
+  return {
+    signIn: creds => dispatch(signIn(creds)),
+    disableAuthError: () => dispatch(disableAuthError())
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

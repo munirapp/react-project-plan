@@ -34,7 +34,7 @@ function AuthIsLoaded({ children }) {
   if (!isLoaded(auth))
     return (
       <div className="splash-screen">
-        <img src="logo192.png" />
+        <img src="logo192.png" alt="splash screen" />
       </div>
     );
   return children;
